@@ -109,7 +109,7 @@ module.exports = function (options) {
           test: /\.ts$/,
           use: [
             {
-              loader: '@AngularClass/hmr-loader',
+              loader: '@angularclass/hmr-loader',
               options: {
                 pretty: !isProd,
                 prod: isProd

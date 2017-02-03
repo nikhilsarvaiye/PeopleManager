@@ -9,7 +9,7 @@ import {
   removeNgStyles,
   createNewHosts,
   createInputTransfer
-} from '@AngularClass/hmr';
+} from '@angularclass/hmr';
 import {
   RouterModule,
   PreloadAllModules
