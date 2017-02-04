@@ -58,9 +58,9 @@ module.exports = function (options) {
      */
     entry: {
 
-      'polyfills': './src/polyfills.browser.ts',
-      'main':      AOT ? './src/main.browser.aot.ts' :
-                  './src/main.browser.ts'
+      'polyfills': './src/client/polyfills.browser.ts',
+      'main':      AOT ? './src/client/main.browser.aot.ts' :
+                  './src/client/main.browser.ts'
 
     },
 
@@ -176,7 +176,7 @@ module.exports = function (options) {
         {
           test: /\.html$/,
           use: 'raw-loader',
-          exclude: [helpers.root('src/index.html')]
+          exclude: [helpers.root('src/client/index.html')]
         },
 
         /* File loader for supporting images, for example, in CSS files.
@@ -260,7 +260,7 @@ module.exports = function (options) {
        * See: https://www.npmjs.com/package/copy-webpack-plugin
        */
       new CopyWebpackPlugin([
-        { from: 'src/assets', to: 'assets' },
+        { from: 'src/client/assets', to: 'assets' },
         { from: 'src/meta'}
       ]),
 
@@ -274,7 +274,7 @@ module.exports = function (options) {
        * See: https://github.com/ampedandwired/html-webpack-plugin
        */
       new HtmlWebpackPlugin({
-        template: 'src/index.html',
+        template: 'src/client/index.html',
         title: METADATA.title,
         chunksSortMode: 'dependency',
         metadata: METADATA,
