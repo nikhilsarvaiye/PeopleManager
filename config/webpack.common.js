@@ -27,7 +27,7 @@ const ngcWebpack = require('ngc-webpack');
 const HMR = helpers.hasProcessFlag('hot');
 const AOT = helpers.hasNpmFlag('aot');
 const METADATA = {
-  title: 'Me4',
+  title: 'PeopleManager',
   baseUrl: '/',
   isDevServer: helpers.isWebpackDevServer()
 };
@@ -186,6 +186,9 @@ module.exports = function (options) {
           use: 'file-loader'
         },
 
+        /* File loader for supporting fonts, for example, in CSS files.
+         */
+        { test: /\.(eot|woff|woff2|svg|ttf)([\?]?.*)$/, loader: "file-loader" },
       ],
 
     },
@@ -348,6 +351,12 @@ module.exports = function (options) {
         disabled: !AOT,
         tsConfig: helpers.root('tsconfig.webpack.json'),
         resourceOverride: helpers.root('config/resource-override.js')
+      }),
+
+      new webpack.ProvidePlugin({
+        jQuery: 'jquery',
+        $: 'jquery',
+        jquery: 'jquery'
       })
 
     ],

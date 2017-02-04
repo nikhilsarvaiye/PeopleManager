@@ -1,0 +1,8 @@
+.page-title {
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
+.page-header-default .breadcrumb-line:not([class*=bg-]){
+    background: inherit;
+    border-bottom: none;
+}
